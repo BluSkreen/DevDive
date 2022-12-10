@@ -1,0 +1,36 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "tech hub",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "npx eslint **/*.js --quiet; exit 0",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BluSkreen/project-2.git"
+  },
+  "author": "Bradley, Edyta, Jason, Makayla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BluSkreen/project-2/issues"
+  },
+  "homepage": "https://github.com/BluSkreen/project-2#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2"
+  }
+}
