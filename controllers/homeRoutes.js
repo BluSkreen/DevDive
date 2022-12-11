@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
       include: [User],
     });
     const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-    res.render("all-jobs", { jobs });
+    res.render("homepage");
   } catch (err) {
     res.status(500).json(err);
   }
