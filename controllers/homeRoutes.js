@@ -1,9 +1,13 @@
 const router = require("express").Router();
-// const { Project, User } = require("../models");
+const { Job, User } = require("../models");
 // const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
-    res.status(200);
+    const jobData = await Job.findAll({
+      include: [User],
+    });
+    const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
+    res.render("all-jobs", { jobs });
   } catch (err) {
     res.status(500).json(err);
   }
