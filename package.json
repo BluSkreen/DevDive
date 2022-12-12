@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "npx eslint **/*.js --quiet; exit 0",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "seed": "seeds/seed"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,5 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  },
-  "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.1.2"
   }
 }
