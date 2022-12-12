@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     //   include: [User],
     // });
     // const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-    res.render("homepage", { logged_in: req.session.logged_i });
+    res.render("homepage", { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -35,6 +35,12 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
-router.get("/login", (req, res) => {});
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+  res.render("login");
+});
 
 module.exports = router;
