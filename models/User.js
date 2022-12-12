@@ -51,6 +51,11 @@ User.init(
     },
     {
         hooks: {
+            // beforeBulkCreate: async (newUserDataBulk) => {
+            //     console.log(newUserDataBulk);
+            //     newUserDataBulk.password = await bcrypt.hash(newUserDataBulk.password, 10);
+            //     return newUserData;
+            // },
             beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
