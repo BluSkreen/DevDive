@@ -6,7 +6,8 @@ h1 {
   color: orange;
 }
 
-a, .menu {
+a,
+.menu {
   color: white;
 }
 
@@ -16,4 +17,12 @@ a, .menu {
 
 .us {
   color: #ffcc80;
+}
+
+.brand {
+  margin-left: 30px;
+}
+
+.card1 {
+  font-family: system-ui;
 }

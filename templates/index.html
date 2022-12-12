@@ -6,40 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starter Template - Materialize</title>
     <!-- Compiled and minified CSS -->
+    <!-- CSS only -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/css/materialize.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="../public/css/style.css" rel="stylesheet" media="screen,projection" />
   </head>
   <body>
-    <nav role="navigation" class="light-blue lighten-1">
-      <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons menu">menu</i></a
-        >
+    <header>
+      <!-- <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">one</a></li>
+      <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li>
+    </ul> -->
+      <nav>
+        <div class="nav-wrapper #0d47a1 blue darken-4">
+          <a href="#!" class="brand-logo brand">DevDive</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="badges.html">Log In</a></li>
+            <li><a href="badges.html">Sign Up</a></li>
+            <!-- Dropdown Trigger -->
+            <!-- <li>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1">User Name<i class="material-icons right">arrow_drop_down</i></a>
+          </li> -->
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="bg-dark">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-6 card1 fs-1 fst-italic fw-semibold my-5 text-light">
+            Welcome to your Web Development Community!!
+            <label for="exampleDataList" class="form-label"></label>
+            <input class="form-control my-5 text-light" list="datalistOptions" id="exampleDataList" placeholder="Type to search jobs..." />
+            <datalist id="datalistOptions">
+              <option value="Junior Front-End Developer"></option>
+              <option value="Junior Back-End Developer"></option>
+              <option value="Scrum Master"></option>
+              <option value="Senior Software Engineer"></option>
+              <option value="Project Help"></option>
+            </datalist>
+            <button type="button" class="btn btn-secondary">Start Your Search</button>
+          </div>
+          <div class="col-6"></div>
+        </div>
       </div>
-    </nav>
-    <div class="section">
+    </main>
+    <!-- <div class="section">
       <div class="container">
-        <br><br>
+        <br /><br />
         <h1 class="header center-align">Starter Template</h1>
         <div class="row center-align">
-          <h5 class="header col s12">
-            A modern responsive front-end framework based on Material Design
-          </h5>
+          <h5 class="header col s12">A modern responsive front-end framework based on Material Design</h5>
         </div>
         <div class="row center-align">
           <a
@@ -50,11 +75,11 @@
             >Get Started</a
           >
         </div>
-        <br><br>
+        <br /><br />
       </div>
-    </div>
+    </div> -->
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="section">
         <div class="row">
           <div class="col s12 m4">
@@ -64,10 +89,8 @@
             <h5 class="center-align">Speeds up development</h5>
 
             <p>
-              We did most of the heavy lifting for you to provide a default
-              stylings that incorporate our custom components. Additionally, we
-              refined animations and transitions to provide a smoother
-              experience for developers.
+              We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined
+              animations and transitions to provide a smoother experience for developers.
             </p>
           </div>
 
@@ -78,11 +101,9 @@
             <h5 class="center-align">User Experience Focused</h5>
 
             <p>
-              By utilizing elements and principles of Material Design, we were
-              able to create a framework that incorporates components and
-              animations that provide more feedback to users. Additionally, a
-              single underlying responsive system across all platforms allow for
-              a more unified user experience.
+              By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations
+              that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified
+              user experience.
             </p>
           </div>
 
@@ -93,16 +114,14 @@
             <h5 class="center-align">Easy to work with</h5>
 
             <p>
-              We have provided detailed documentation as well as specific code
-              examples to help new users get started. We are also always open to
-              feedback and can answer any questions a user may have about
-              Materialize.
+              We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to
+              feedback and can answer any questions a user may have about Materialize.
             </p>
           </div>
         </div>
       </div>
-      <br><br>
-    </div>
+      <br /><br />
+    </div> -->
 
     <footer class="page-footer orange">
       <div class="container">
@@ -110,8 +129,7 @@
           <div class="col l6 s12">
             <h5>Company Bio</h5>
             <p>
-              We are a team of college students working on this project like
-              it's our full time job. Any amount would help support and continue
+              We are a team of college students working on this project like it's our full time job. Any amount would help support and continue
               development on this project and is greatly appreciated.
             </p>
           </div>
@@ -138,13 +156,7 @@
       <div class="footer-copyright">
         <div class="container">
           Made by
-          <a
-            class="us"
-            href="https://materializecss.github.io/materialize"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Materialize</a
-          >
+          <a class="us" href="https://materializecss.github.io/materialize" target="_blank" rel="noopener noreferrer">Materialize</a>
         </div>
       </div>
     </footer>
