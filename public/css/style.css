@@ -17,3 +17,22 @@ a, .menu {
 .us {
   color: #ffcc80;
 }
+
+footer{
+  padding-bottom: 2%;
+}
+
+#footer{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+footer h5 {
+  text-decoration: underline;
+}
+
+#extra  {
+  text-align: center;
+  display: contents;
+}
