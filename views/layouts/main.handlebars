@@ -18,28 +18,36 @@
   <body>
     <nav role="navigation" class="light-blue lighten-1">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">DevDive</a>
+        <a href="/" class="brand-logo">DevDive</a>
         
         {{#if logged_in}}
 
         {{!-- <a href="/profile">profile</a> --}}
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Profile</a></li>
+        </ul>
         <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Profile</a></li>
+          <li><a href="/">Profile</a></li>
         </ul> |
-        <button class="no-button" id="logout">logout</button>
-        {{!-- <p>working</p> --}}
+        <button class="right no-button" id="logout">logout</button>
+
         {{else}}
         
         {{!-- <a href="/login">login</a> --}}
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Login</a></li>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/login">Login</a></li>
         </ul>
-        <p>working</p>
-        {{/else}}
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="/login">Login</a></li>
+        </ul>
         {{/if}}
-        {{!-- <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Login</a></li>
-        </ul> --}}
+        
+
+        
+        
+        <a href="/" data-target="nav-mobile" class="sidenav-trigger"><i
+            class="material-icons menu"
+          >menu</i></a>
       </div>
     </nav>
     
