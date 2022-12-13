@@ -1,7 +1,9 @@
 const seedCompanies = require("./companyData");
 const seedJobs = require("./jobData");
+const seedTags = require("./tagData");
+const seedJobTags = require("./jobTagData");
 const seedUsers = require("./userData");
-const seedRoles = require("./roleData")
+const seedRoles = require("./roleData");
 
 const sequelize = require('../config/connection');
 
@@ -15,6 +17,12 @@ const seedDatabase = async () => {
 
   await seedJobs();
   console.log("\n----- JOBS SEEDED -----\n");
+
+  await seedTags();
+  console.log("\n----- TAGS SEEDED -----\n");
+
+  await seedJobTags();
+  console.log("\n----- JOB_TAGS SEEDED -----\n");
 
   await seedUsers();
   console.log("\n----- USERS SEEDED -----\n");

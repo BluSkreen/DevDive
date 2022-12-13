@@ -1,28 +1,12 @@
-.container {
-  width: 90%;
+.card1 {
+  font-family: system-ui;
 }
 
-h1 {
-  color: orange;
-}
-
-a, .menu {
-  color: white;
-}
-
-.material-icons {
-  color: #29b6f6;
-}
-
-.us {
-  color: #ffcc80;
-}
-
-footer{
+footer {
   padding-bottom: 2%;
 }
 
-#footer{
+#footer {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -32,7 +16,7 @@ footer h5 {
   text-decoration: underline;
 }
 
-#extra  {
+#extra {
   text-align: center;
   display: contents;
 }
