@@ -13,18 +13,32 @@ router.get("/", async (req, res) => {
   }
 });
 
+// router.get("/profile/:userName", async (req, res) => {
+//   try {
+//     const userData = await User.findOne({s
+//       where: { username: req.params.userName },
+//     });
+//     const user = userData.get({ plain: true });
+//     console.log(req.session);
+//     console.log(user);
+//     res.render("profile", { logged_in: req.session.logged_in, user });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get("/profile/:userName", async (req, res) => {
   try {
-    // const jobData = await Job.findAll({
-    //   include: [User],
-    // });
-    // const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-    const userData = await User.findOne({
-      where: { username: req.params.userName },
-    });
+    const userData = await User.findByPk(req.session.user_id);
+    if (userData.dataValues.username === req.params.userName) {
+      console.log("a match!");
+
+
+
+      
+    }
     const user = userData.get({ plain: true });
-    console.log(req.session);
-    console.log(user);
+    
     res.render("profile", { logged_in: req.session.logged_in, user });
   } catch (err) {
     res.status(500).json(err);
