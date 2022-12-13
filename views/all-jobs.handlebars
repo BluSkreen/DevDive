@@ -1,18 +1,16 @@
 <div class="jobs">
-  {{#each jobs}}
+  {{#each jobs as |job|}}
   <article class="card">
     <div class="card-header flex-row justify-space-between">
       <h2>
-        <a href="/post/{{id}}">{{title}}</a>
+        <a href="/post/{{job.id}}">{{job.title}}</a>
       </h2>
       <div>
         {{!-- NOTE: add format date helpers and etc
          --}}
-        Posted by {{User.username}} on {{format_date createdAt}}
+        Posted by {{job.company_name}} 
+        {{!-- on {{format_date createdAt}} --}}
       </div>
-    </div>
-    <div class="card-body">
-      {{body}}
     </div>
   </article>
   {{/each}}
