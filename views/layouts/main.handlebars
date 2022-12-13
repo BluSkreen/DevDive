@@ -1,116 +1,103 @@
+<!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevDive</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <!--Import materialize.css-->
-    {{! <link type="text/css" rel="stylesheet" href="../../public/css/materialize.min.css"  media="screen,projection"/> }}
+    <!-- Compiled and minified CSS -->
+    <!-- CSS only -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.0/dist/css/materialize.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
     />
-    <link href="../../public/css/style.css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="../public/css/style.css" rel="stylesheet" media="screen,projection" />
   </head>
 
-  <body>
-    <nav role="navigation" class="light-blue lighten-1">
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">DevDive</a>
-        
-        {{#if logged_in}}
+  <body class="bg-dark">
 
-        {{!-- <a href="/profile">profile</a> --}}
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="/">one</a></li>
+      <li><a href="/">two</a></li>
+      <li class="divider"></li>
+      <a class="waves-effect waves-teal btn-flat">Logout</a>
+    </ul>
+    <nav>
+      <div class="nav-wrapper #0d47a1 blue darken-4">
+        <a href="#!" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/">Profile</a></li>
-        </ul>
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="/">Profile</a></li>
-        </ul> |
-        <button class="right no-button" id="logout">logout</button>
-
-        {{else}}
-        
-        {{!-- <a href="/login">login</a> --}}
-        <ul class="right hide-on-med-and-down">
+          {{#if logged_in}}
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+          {{!-- <li><a href="sass.html"></a></li> --}}
+          {{else}}
           <li><a href="/login">Login</a></li>
+          {{/if}}
+          <!-- Dropdown Trigger -->
         </ul>
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="/login">Login</a></li>
-        </ul>
-        {{/if}}
-        
-
-        
-        
-        <a href="/" data-target="nav-mobile" class="sidenav-trigger"><i
-            class="material-icons menu"
-          >menu</i></a>
       </div>
     </nav>
-    
+
     <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{body}}}
     </main>
 
-    <footer class="page-footer orange">
+    <footer class="page-footer indigo darken-3">
       <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5>Company Bio</h5>
-            <p>
-              We are a team of college students working on this project like it's our full time job.
-              Any amount would help support and continue development on this project and is greatly
-              appreciated.
-            </p>
+        <div class="row" id="footer">
+          <div class="col s3">
+            <h5>Jason</h5>
+           <ul>
+              <li><a href="https://github.com/BluSkreen">Git Hub</a></li>
+              <li><a href="">social</a></li>
+           </ul>
           </div>
-          <div class="col l3 s12">
-            <h5>Settings</h5>
-            <ul>
-              <li><a href="#!">Link 1</a></li>
-              <li><a href="#!">Link 2</a></li>
-              <li><a href="#!">Link 3</a></li>
-              <li><a href="#!">Link 4</a></li>
-            </ul>
+          <div class="col s3">
+           <h5>Edyta</h5>
+           <ul>
+              <li><a href="https://github.com/edyta0106">Git Hub</a></li>
+              <li><a href="">social</a></li>
+           </ul>
           </div>
-          <div class="col l3 s12">
-            <h5>Connect</h5>
-            <ul>
-              <li><a href="#!">Link 1</a></li>
-              <li><a href="#!">Link 2</a></li>
-              <li><a href="#!">Link 3</a></li>
-              <li><a href="#!">Link 4</a></li>
-            </ul>
+          <div class="col s3">
+             <h5>Bradley</h5>
+             <ul>
+               <li><a href="https://github.com/HeyItsBradley">Git Hub</a></li>
+               <li><a href="">social</a></li>
+             </ul>
+          </div>
+          <div class="col s3">
+              <h5>Makayla</h5>
+             <ul>
+               <li><a href="https://github.com/Makayla00">Git Hub</a></li>
+               <li><a href="">social</a></li>
+             </ul>
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          Made by
-          <a
-            class="us"
-            href="https://materializecss.github.io/materialize"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Materialize</a>
-        </div>
+      <div class="container">
+        <div class="row" id="extra">
+          <div class="col s6"><a href=""><h6>docs</h6></a></div>
+          <div class="col s6"><a href=""><h6>legal</h6></a></div>
+        </div>  
       </div>
     </footer>
 
-    
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
-      <p>working</p>
+      {{!-- <p>working</p> --}}
       <script src="/js/logout.js"></script>
     {{/if}}
-
-    {{!-- <script type="text/javascript" src="../../public/js/materialize.min.js"></script> --}}
-    <script
-      src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.0/dist/js/materialize.min.js"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/js/materialize.min.js"></script>
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 
 </html>
