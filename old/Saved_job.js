@@ -11,23 +11,23 @@ Saved_job.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
-        unique: false,
-      },
+        unique: false
+      }
     },
     job_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "job",
         key: "id",
-        unique: false,
-      },
+        unique: false
+      }
     }
   },
   {
@@ -35,7 +35,7 @@ Saved_job.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "saved_job",
+    modelName: "saved_job"
   }
 );
 
