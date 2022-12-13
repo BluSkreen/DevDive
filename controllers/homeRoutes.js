@@ -13,6 +13,24 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/profile/:userName", async (req, res) => {
+  try {
+    // const jobData = await Job.findAll({
+    //   include: [User],
+    // });
+    // const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
+    const userData = await User.findOne({
+      where: { username: req.params.userName },
+    });
+    const user = userData.get({ plain: true });
+    console.log(req.session);
+    console.log(user);
+    res.render("profile", { logged_in: req.session.logged_in, user });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/search", async (req, res) => {
   try {
     const jobData = await Job.findAll({
@@ -53,7 +71,7 @@ router.get("/user/:id", async (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   }
   res.render("login");
