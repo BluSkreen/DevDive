@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,32 +19,31 @@
 
   <body class="bg-dark">
 
-
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="/">one</a></li>
-      <li><a href="/">two</a></li>
+      <li><a href="/">Profile</a></li>
+      <li><a href="/">Settings</a></li>
       <li class="divider"></li>
       <a class="waves-effect waves-teal btn-flat" id="logout">Logout</a>
     </ul>
     <nav>
       <div class="nav-wrapper #0d47a1 blue darken-4">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#!" class="brand-logo ms-4">DevDive</a>
         <ul class="right hide-on-med-and-down">
           {{#if logged_in}}
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-          {{!-- <li><a href="sass.html"></a></li> --}}
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+            {{! <li><a href="sass.html"></a></li> }}
           {{else}}
-          <li><a href="/login">Login</a></li>
+            <li><a href="/login">Login</a></li>
           {{/if}}
           <!-- Dropdown Trigger -->
         </ul>
       </div>
     </nav>
 
-    <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{body}}}
+    <main class="container container-fluid m-0" style="width: 100%">
+      <!-- Render the sub layout -->
+      {{{body}}}
     </main>
 
     <footer class="page-footer indigo darken-3">
@@ -53,31 +51,31 @@
         <div class="row" id="footer">
           <div class="col s3">
             <h5>Jason</h5>
-           <ul>
+            <ul>
               <li><a href="https://github.com/BluSkreen">Git Hub</a></li>
               <li><a href="">social</a></li>
-           </ul>
+            </ul>
           </div>
           <div class="col s3">
-           <h5>Edyta</h5>
-           <ul>
+            <h5>Edyta</h5>
+            <ul>
               <li><a href="https://github.com/edyta0106">Git Hub</a></li>
               <li><a href="">social</a></li>
-           </ul>
+            </ul>
           </div>
           <div class="col s3">
-             <h5>Bradley</h5>
-             <ul>
-               <li><a href="https://github.com/HeyItsBradley">Git Hub</a></li>
-               <li><a href="">social</a></li>
-             </ul>
+            <h5>Bradley</h5>
+            <ul>
+              <li><a href="https://github.com/HeyItsBradley">Git Hub</a></li>
+              <li><a href="">social</a></li>
+            </ul>
           </div>
           <div class="col s3">
-              <h5>Makayla</h5>
-             <ul>
-               <li><a href="https://github.com/Makayla00">Git Hub</a></li>
-               <li><a href="">social</a></li>
-             </ul>
+            <h5>Makayla</h5>
+            <ul>
+              <li><a href="https://github.com/Makayla00">Git Hub</a></li>
+              <li><a href="">social</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -85,13 +83,13 @@
         <div class="row" id="extra">
           <div class="col s6"><a href=""><h6>docs</h6></a></div>
           <div class="col s6"><a href=""><h6>legal</h6></a></div>
-        </div>  
+        </div>
       </div>
     </footer>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
-      {{!-- <p>working</p> --}}
+      {{! <p>working</p> }}
       <script src="/js/logout.js"></script>
     {{/if}}
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/js/materialize.min.js"></script>
