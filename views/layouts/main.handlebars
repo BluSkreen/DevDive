@@ -31,14 +31,18 @@
 
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
-      <a class="waves-effect waves-teal btn-flat" id="profile">Profile</a>
+      <a
+        class="waves-effect waves-teal btn-flat"
+        href="/profile/{{user}}"
+        id="profile"
+      >Profile</a>
       <li><a href="/">Settings</a></li>
       <li class="divider"></li>
       <a class="waves-effect waves-teal btn-flat" id="logout">Logout</a>
     </ul>
     <nav>
       <div class="nav-wrapper #0d47a1 blue darken-4">
-        <a href="#!" class="brand-logo ms-4">DevDive</a>
+        <a href="/" class="brand-logo ms-4">DevDive</a>
         <ul class="right hide-on-med-and-down">
           {{#if logged_in}}
             <li><a
@@ -112,7 +116,9 @@
       <script src="/js/logout.js"></script>
       <script src="/js/profile"></script>
     {{/if}}
-    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/js/materialize.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/js/materialize.min.js"
+    ></script>
     <script src="../../public/js/testhomepage.js"></script>
     <script>
       M.AutoInit();
