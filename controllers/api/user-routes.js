@@ -1,5 +1,6 @@
 // add user routes
 const router = require("express").Router();
+const withAuth = require("../../utils/auth");
 
 const { User } = require("../../models");
 //post route for creating a new user
@@ -23,7 +24,7 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(userData);
+    // console.log(userData);
 
     if (!userData) {
       res
@@ -76,6 +77,15 @@ router.put("/update/:id", async (req, res) => {
       res.status(404).json("no info was entered");
     }
     res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/your_profile", withAuth, async (req, res) => {
+  try {
+    const userData = User.findByPk(req.session.user_id);
+    res.redirect(`/profile/${userData.dataValues.username}`);
   } catch (err) {
     res.status(500).json(err);
   }

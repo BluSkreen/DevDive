@@ -7,7 +7,42 @@ router.get("/", async (req, res) => {
     //   include: [User],
     // });
     // const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-    res.render("homepage", { logged_in: req.session.logged_in });
+    if (req.session.logged_in) {
+      const userData = await User.findByPk(req.session.user_id);
+      const user = await userData.dataValues.username;
+      console.log(user);
+      res.render("homepage", { logged_in: req.session.logged_in, user });
+    } else {
+      res.render("homepage", { logged_in: req.session.logged_in });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// router.get("/profile/:userName", async (req, res) => {
+//   try {
+//     const userData = await User.findOne({s
+//       where: { username: req.params.userName },
+//     });
+//     const user = userData.get({ plain: true });
+//     console.log(req.session);
+//     console.log(user);
+//     res.render("profile", { logged_in: req.session.logged_in, user });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.get("/profile/:userName", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id);
+    if (userData.dataValues.username === req.params.userName) {
+      console.log("a match!");
+    }
+    const user = userData.get({ plain: true });
+
+    res.render("profile", { logged_in: req.session.logged_in, user });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -53,7 +88,7 @@ router.get("/user/:id", async (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   }
   res.render("login");
