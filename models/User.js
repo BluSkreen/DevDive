@@ -48,6 +48,10 @@ User.init(
         len: [8],
       },
     },
+    saved_jobs: {
+        type: DataTypes.JSON,
+        defaultValue: [],
+    },
     location: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -81,11 +85,6 @@ User.init(
   },
   {
     hooks: {
-      // beforeBulkCreate: async (newUserDataBulk) => {
-      //     console.log(newUserDataBulk);
-      //     newUserDataBulk.password = await bcrypt.hash(newUserDataBulk.password, 10);
-      //     return newUserData;
-      // },
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
