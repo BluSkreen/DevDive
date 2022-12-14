@@ -34,10 +34,34 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
+// router.get("/profile/:userName", async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.session.user_id);
+//     const user = userData.get({ plain: true });
+//     const searchedUser = await User.findOne({
+//       where: { username: req.params.userName },
+//     });
+//     console.log(searchedUser);
+//     const searchedUserPlain = searchedUser.get({ plain: true });
+//     if (userData.dataValues.username === req.params.userName) {
+//       console.log("a match!");
+//       res.render("profile", { match: true, user });
+//     } else {
+//       const user = searchedUserPlain;
+//       console.log("not a match");
+//       res.render("profile", { user });
+//     }
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 router.get("/profile/:userName", async (req, res) => {
   try {
     // get user with params username
-    const searchUser = await User.findOne({ where: { username: req.params.userName } });
+    const searchUser = await User.findOne({
+      where: { username: req.params.userName },
+    });
     //if the user name is valid
     if (searchUser) {
       // if there are cookies the find the userdata for that
@@ -133,6 +157,14 @@ router.get("/search/:query", async (req, res) => {
 //   }
 // });
 
+router.get("/search", async (req, res) => {
+  try {
+    res.render("startsearchpage");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/user/:id", async (req, res) => {
   try {
     
@@ -147,6 +179,10 @@ router.get("/login", (req, res) => {
     return;
   }
   res.render("login");
+});
+
+router.get("/updateProfile", (req, res) => {
+  res.render("updateProfile");
 });
 
 module.exports = router;
