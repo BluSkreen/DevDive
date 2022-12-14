@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Job, User } = require("../models");
+const { Job, User, Job_tag, Tag } = require("../models");
 const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
@@ -101,20 +101,32 @@ router.get("/profile/:userName", async (req, res) => {
 
 router.get("/search/:query", async (req, res) => {
   try {
-    const jobData = await Job.findAll();
-
-    const jobs = await jobData.map((job) => job.get({ plain: true }));
-
-    // include: [
-    //   {
-    //     model: Painting,
-    //     attributes: ["filename", "description"],
-    //   },
-    // ],
-    console.log(jobs);
-    res.render("search", {
-      jobs,
+    const query = await req.params.query;
+    // console.log(query);
+    // console.log("---------------")
+    const job_tagData = await Job_tag.findAll({
+      include: [Job, Tag]
     });
+
+    let matchingTags =  await job_tagData.filter((job_tag) => {
+      // console.log(job_tag);
+      return query === job_tag.tag.dataValues.tag_name;
+    });
+    if (matchingTags) {
+      const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
+      console.log(jobs);
+      res.render("search", {jobs});
+      return;
+    } else {
+      const jobData = await Job.findAll();
+      const jobs = await jobData.map((job) => job.get({ plain: true }));
+      // console.log(jobs);
+      res.render("search", {jobs});
+      return;
+    }
+    
+    // console.log(matchingTags);
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -131,6 +143,7 @@ router.get("/search", async (req, res) => {
 
 router.get("/user/:id", async (req, res) => {
   try {
+    
   } catch (err) {
     res.status(500).json(err);
   }

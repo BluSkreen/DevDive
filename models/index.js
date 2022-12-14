@@ -14,7 +14,7 @@ User.belongsToMany(Company, {
         model: Role,
         unique: false
     },
-    as: "user_companies"
+    // as: "user_companies"
 });
 
 Company.belongsToMany(User, {
@@ -22,7 +22,7 @@ Company.belongsToMany(User, {
         model: Role,
         unique: false
     },
-    as: "company_users"
+    // as: "company_users"
 });
 
 
@@ -49,7 +49,7 @@ Tag.belongsToMany(Job, {
     model: Job_tag,
     unique: false,
   },
-  as: "tagged_jobs",
+  // as: "tagged_jobs",
 });
 
 Job.belongsToMany(Tag, {
@@ -57,8 +57,15 @@ Job.belongsToMany(Tag, {
     model: Job_tag,
     unique: false,
   },
-  as: "site_tags",
+  // as: "site_tags",
 });
+// The "Super Many-to-Many" sequalize relationship
+// Allows .findAll(... include [Job, Tag, and/or Job_tag] )
+// and .findAll(Job_tag ...)
+Tag.hasMany(Job_tag);
+Job_tag.belongsTo(Tag);
+Job.hasMany(Job_tag);
+Job_tag.belongsTo(Job);
 
 module.exports = {
     Company,
