@@ -1,15 +1,8 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-
 .wrapper {
   position: relative;
   display: flex;
   align-items: center;
+  left: 300px;
   flex-wrap: wrap;
   width: 1px;
   height: 100vh;
