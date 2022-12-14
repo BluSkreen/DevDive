@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Job, User } = require("../models");
+const { Job, User, Job_tag, Tag } = require("../models");
 const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
@@ -36,50 +36,106 @@ router.get("/", async (req, res) => {
 
 router.get("/profile/:userName", async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id);
-    if (userData.dataValues.username === req.params.userName) {
-      console.log("a match!");
+    // get user with params username
+    const searchUser = await User.findOne({ where: { username: req.params.userName } });
+    //if the user name is valid
+    if (searchUser) {
+      // if there are cookies the find the userdata for that
+      if (req.session.user_id) {
+        const myUserData = await User.findByPk(req.session.user_id);
+
+        //if logged in then put myUserData into user
+        // **** EVERY OTHER CASE WILL PUT searchUser INTO user ****
+        if (myUserData.dataValues.username === req.params.userName) {
+          const user = myUserData.get({ plain: true });
+          console.log("Match!");
+          res.render("profile", { match: true, user });
+        } else {
+          // cookies dont match username param
+          // user params username
+          console.log("No match");
+          const user = searchUser.get({ plain: true });
+          res.render("profile", { user });
+        }
+      } else {
+        // no cookies
+        console.log("no cookies");
+        // use params username
+        const user = searchUser.get({ plain: true });
+        res.render("profile", { user });
+      }
+    } else {
+      // not found
+      res.render("user-not-found");
+      // res.status(404).json("Username not found");
     }
-    const user = userData.get({ plain: true });
-
-    res.render("profile", { logged_in: req.session.logged_in, user });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/search/:query", async (req, res) => {
-  try {
-    const jobData = await Job.findAll();
-
-    const jobs = await jobData.map((job) => job.get({ plain: true }));
-
-    // include: [
-    //   {
-    //     model: Painting,
-    //     attributes: ["filename", "description"],
-    //   },
-    // ],
-    console.log(jobs);
-    res.render("search", {
-      jobs,
-    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/search", async (req, res) => {
+router.get("/search/:query", async (req, res) => {
   try {
-    res.render("startsearchpage");
+    const query = await req.params.query;
+    // console.log(query);
+    // console.log("---------------")
+    const job_tagData = await Job_tag.findAll({
+      include: [Job, Tag]
+    });
+
+    let matchingTags =  await job_tagData.filter((job_tag) => {
+      // console.log(job_tag);
+      return query === job_tag.tag.dataValues.tag_name;
+    });
+    if (matchingTags) {
+      const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
+      console.log(jobs);
+      res.render("search", {jobs});
+      return;
+    } else {
+      const jobData = await Job.findAll();
+      const jobs = await jobData.map((job) => job.get({ plain: true }));
+      // console.log(jobs);
+      res.render("search", {jobs});
+      return;
+    }
+    
+    // console.log(matchingTags);
+
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
+// router.get("/search", async (req, res) => {
+//   try {
+//     const jobData = await Job.findAll({
+//       include: [
+//         {
+//           model: Company,
+//           attributes: ["company_name"],
+//         },
+//       ],
+//     });
+
+//     // Serialize data so the template can read it
+//     const jobs = jobData.map((job) => job.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
+//     res.render("all-jobs", {
+//       jobs,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get("/user/:id", async (req, res) => {
   try {
+    
   } catch (err) {
     res.status(500).json(err);
   }
