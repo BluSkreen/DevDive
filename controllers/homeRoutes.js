@@ -48,6 +48,28 @@ router.get("/profile/:userName", async (req, res) => {
   }
 });
 
+router.get("/search/:query", async (req, res) => {
+  try {
+    const jobData = await Job.findAll();
+
+    const jobs = await jobData.map((job) => job.get({ plain: true }));
+    
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: ["filename", "description"],
+      //   },
+      // ],
+      console.log(jobs);
+        res.render("search", {
+          jobs,
+        });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // router.get("/search", async (req, res) => {
 //   try {
 //     const jobData = await Job.findAll({
@@ -71,28 +93,6 @@ router.get("/profile/:userName", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
-router.get("/search/:query", async (req, res) => {
-  try {
-    const jobData = await Job.findAll();
-
-    const jobs = await jobData.map((job) => job.get({ plain: true }));
-    
-      // include: [
-      //   {
-      //     model: Painting,
-      //     attributes: ["filename", "description"],
-      //   },
-      // ],
-      console.log(jobs);
-        res.render("search", {
-          jobs,
-        });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 router.get("/user/:id", async (req, res) => {
   try {
