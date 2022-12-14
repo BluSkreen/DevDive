@@ -67,15 +67,17 @@
             <h6 class="theme-color lead">{{user.intro}}</h6>
             <p>{{user.aboutMe}}</p>
             <hr />
-            <div class="row">
-              <div class="col-sm-12">
-                <a
-                  class="btn btn-secondary"
-                  target="__blank"
-                  href="/profile/update"
-                >Edit</a>
+            {{#if match}}
+              <div class="row">
+                <div class="col-sm-12">
+                  <a
+                    class="btn btn-secondary"
+                    target="__blank"
+                    href="/updateProfile"
+                  >Edit</a>
+                </div>
               </div>
-            </div>
+            {{/if}}
           </div>
         </div>
       </div>
