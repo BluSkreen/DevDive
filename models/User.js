@@ -49,7 +49,8 @@ User.init(
             }
         },
         saved_jobs: {
-            type: DataTypes.JSON
+            type: DataTypes.JSON,
+            defaultValue: "[]",
         }
     },
     {
