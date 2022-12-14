@@ -133,30 +133,6 @@ router.get("/search/:query", async (req, res) => {
   }
 });
 
-// router.get("/search", async (req, res) => {
-//   try {
-//     const jobData = await Job.findAll({
-//       include: [
-//         {
-//           model: Company,
-//           attributes: ["company_name"],
-//         },
-//       ],
-//     });
-
-//     // Serialize data so the template can read it
-//     const jobs = jobData.map((job) => job.get({ plain: true }));
-
-//     // Pass serialized data and session flag into template
-//     res.render("all-jobs", {
-//       jobs,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get("/search", async (req, res) => {
   try {
     res.render("startsearchpage");
