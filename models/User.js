@@ -50,7 +50,7 @@ User.init(
     },
     saved_jobs: {
         type: DataTypes.JSON,
-        defaultValue: "[]",
+        defaultValue: [],
     },
     location: {
       type: DataTypes.STRING,

@@ -88,12 +88,18 @@ router.put("/save_job/:job_id", async (req, res) => {
     if (req.session.logged_in) {
       // get json-array from target user and parse it
       let userData = await User.findByPk(req.session.user_id);
-      let jobs = JSON.parse(userData.saved_jobs);
+      let jobs = userData.saved_jobs;
+      // let jobs = JSON.parse(userData.saved_jobs);
+
       // put the job id in the array as a parsed int
       let job = parseInt(req.params.job_id);
+      // jobs.push(req.params.job_id);
       jobs.push(job);
+
       // point the users's saved jobs to the new json array
-      userData.saved_jobs = JSON.stringify(jobs);
+      userData.saved_jobs = jobs;
+      
+      // userData.saved_jobs = JSON.stringify(jobs);
       const updatedUserData = await User.update(userData.dataValues, {
         where: {
           id: req.session.user_id,

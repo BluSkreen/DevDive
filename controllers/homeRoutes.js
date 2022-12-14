@@ -13,39 +13,55 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/search", async (req, res) => {
+// router.get("/search", async (req, res) => {
+//   try {
+//     const jobData = await Job.findAll({
+//       include: [
+//         {
+//           model: Company,
+//           attributes: ["company_name"],
+//         },
+//       ],
+//     });
+
+//     // Serialize data so the template can read it
+//     const jobs = jobData.map((job) => job.get({ plain: true }));
+
+//     // Pass serialized data and session flag into template
+//     res.render("all-jobs", {
+//       jobs,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.get("/search/:query", async (req, res) => {
   try {
-    const jobData = await Job.findAll({
-      include: [
-        {
-          model: Company,
-          attributes: ["company_name"],
-        },
-      ],
-    });
+    const jobData = await Job.findAll();
 
-    // Serialize data so the template can read it
-    const jobs = jobData.map((job) => job.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render("all-jobs", {
-      jobs,
-      logged_in: req.session.logged_in,
-    });
+    const jobs = await jobData.map((job) => job.get({ plain: true }));
+    
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: ["filename", "description"],
+      //   },
+      // ],
+      console.log(jobs);
+        res.render("search", {
+          jobs,
+        });
   } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/search/:id", async (req, res) => {
-  try {
-  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.get("/user/:id", async (req, res) => {
   try {
+    
   } catch (err) {
     res.status(500).json(err);
   }
