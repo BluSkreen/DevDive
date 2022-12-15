@@ -14,11 +14,18 @@
       <h5 class="card-title">{{title}}</h5>
       <p class="card-text">{{location}}</p>
       <p class="card-text">{{description}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#" class="btn btn-primary">Apply Now</a>
     </div>
     <div class="card-body" id="job-card-location-body-{{id}}" hidden>
       <h5 class="card-title">{{location}}</h5>
-      <iframe class="job-card-location" id="{{location}}" src="https://embed.waze.com/iframe?zoom=14&lat=39.822743&lon=-105.032387&ct=livemap" width="600" height="450" allowfullscreen></iframe>
+      <iframe
+        class="job-card-location"
+        id="{{location}}"
+        src="https://embed.waze.com/iframe?zoom=14&lat=39.822743&lon=-105.032387&ct=livemap"
+        width="600"
+        height="450"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </div>
