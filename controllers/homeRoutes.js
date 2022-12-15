@@ -107,7 +107,12 @@ router.get("/search/:query", async (req, res) => {
     const job_tagData = await Job_tag.findAll({
       include: [Job, Tag]
     });
-
+    
+    // params.split(",");
+    // maybe add location data to logic
+    // for each tagData, compare the params to it
+    // then if each one is a valid tag, query
+    
     let matchingTags =  await job_tagData.filter((job_tag) => {
       // console.log(job_tag);
       return query === job_tag.tag.dataValues.tag_name;
