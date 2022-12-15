@@ -4,40 +4,39 @@
 
 ## Table of Contents
 
-[Description](##Description)
+[Description](#description)
 
-[Install](##Install)
+[Install](#install)
 
-[Credits](##Credits)
+[Usage](#usage)
 
-[Usage](##Usage)
+[Credits](#credits)
+
+[License](#license)
+
+[Mock-Up](#mock-up)
 
 ## Description
 
-This app allows people with a love for tech to connect from anywhere in an environment that breeds creativity.
+The DevDive app allows people with a love for tech to connect from anywhere in an environment that breeds creativity.
 
-This app allows users to search jobs either manually or by suggestion
-wich allows users to find jobs within the tech industry quickly and easily
-By allowing users to search for specifics like Front-end Developer, Back-end Developer, Scrum-master and more for all different level coders from Entry level Devs to Senior Devs.
-You are able to create an account and add info about yourself
-If you have an account you can save and come back to jobs you like.
+The app allows users to easily search for jobs within the tech industry through specifics like Front-End, Back-End, Scrum Master, Senior, Junior and more. Create an account and apply for jobs based on preferences and experience.
 
--- USER STORY --
-AS A - person Interested in tech jobs
-I WANT - an app that makes it easy to find jobs with in the tech industry
-SO THAT - i can apply for jobs to start or continue Working it the tech industry
+## User Story
+
+```
+AS A - Web Developer interested in tech jobs
+I WANT - an app that makes it easy to search for career opportunities
+SO THAT - I can seek out jobs in the tech industry based on experience and preferences
+```
 
 ## Install
 
-npm i express, express-handlebars, express-session, sequelize , anime.js
+npm i, npm run seed, express, express-handlebars, express-session, sequelize, anime.js
 
 ## Usage
 
--- TECHNOLOGIES USED --
-
-- Materialize
-- Bootstrap
-- anime.js
+Easily search for jobs in the tech industry based on experience and preferences. Create an account. Apply for jobs by following the provided company link in job description.
 
 ## Credits
 
@@ -48,4 +47,34 @@ npm i express, express-handlebars, express-session, sequelize , anime.js
 
 ## License
 
-https://opensource.org/licenses/MIT
+[MIT License](https://opensource.org/licenses/MIT)
+
+## Mock-Up
+
+The following link takes you to the deployed application:
+
+[DevDive](https://dev-dive.herokuapp.com/)
+
+Homepage:
+
+![Homepage](./public/assets/homepage.png)
+
+Search Page:
+
+![Search Page](./public/assets/search-page.png)
+
+Results Page:
+
+![Results Page](./public/assets/search-results.png)
+
+Job Description Page:
+
+![Job Description](./public/assets/job-description.png)
+
+Login Page:
+
+![Login Page](./public/assets/login-page.png)
+
+Profile Page:
+
+![Profile Page](./public/assets/profile-page.png)
