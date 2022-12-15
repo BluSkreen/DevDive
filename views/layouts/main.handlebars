@@ -32,7 +32,7 @@
           <a href="/" class="brand-logo ms-4">DevDive</a>
           <ul class="right hide-on-med-and-down">
             {{#if logged_in}}
-              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
               {{! <li><a href="sass.html"></a></li> }}
             {{else}}
               <li><a href="/login">Login</a></li>
@@ -42,7 +42,7 @@
         </div>
       </nav>
     </div>
-    <main class="container-fluid my-5 d-flex flex-wrap justify-content-around" style="width: 100% height: 100%">
+    <main class="container-fluid my-5 d-flex flex-wrap justify-content-evenly" style="width: 100% height: 100%">
       <!-- Render the sub layout -->
       {{{body}}}
     </main>
@@ -50,40 +50,52 @@
     <footer class="page-footer indigo darken-3">
       <div class="container">
         <div class="row" id="footer">
-          <div class="col s3">
+          <div class="col s3 text-center my-3">
             <h5>Jason</h5>
-            <ul>
-              <li><a href="https://github.com/BluSkreen">Git Hub</a></li>
-              <li><a href="">social</a></li>
+            <ul class="d-grid gap-4">
+              <li><a href="https://github.com/BluSkreen" target="_blank" style="color: white"><img
+                    src="/assets/github-logo-mini.png"
+                    alt="GitHub Logo"
+                  /></a></li>
+              <li><a href="https://twitter.com/BlueSkreenOD" target="_blank"><img src="/assets/twitter-logo.png" alt="Twitter Icon" /></a></li>
             </ul>
           </div>
-          <div class="col s3">
+          <div class="col s3 text-center my-3">
             <h5>Edyta</h5>
-            <ul>
-              <li><a href="https://github.com/edyta0106">Git Hub</a></li>
-              <li><a href="">social</a></li>
+            <ul class="d-grid gap-4">
+              <li><a href="https://github.com/edyta0106" target="_blank" style="color: white"><img
+                    src="/assets/github-logo-mini.png"
+                    alt="GitHub Logo"
+                  /></a></li>
+              <li><a href="https://twitter.com/RadomskaEdyta" target="_blank"><img src="/assets/twitter-logo.png" alt="Twitter Icon" /></a></li>
             </ul>
           </div>
-          <div class="col s3">
+          <div class="col s3 text-center">
+            <h5>GitHub Docs</h5>
+            <ul>
+              <a href="https://github.com/BluSkreen/project-2" target="_blank"><img src="/assets/github-logo-white.png" alt="GitHub Logo" /></a>
+            </ul>
+          </div>
+          <div class="col s3 text-center my-3">
             <h5>Bradley</h5>
-            <ul>
-              <li><a href="https://github.com/HeyItsBradley">Git Hub</a></li>
-              <li><a href="">social</a></li>
+            <ul class="d-grid gap-4">
+              <li><a href="https://github.com/HeyItsBradley" target="_blank" style="color: white"><img
+                    src="/assets/github-logo-mini.png"
+                    alt="GitHub Logo"
+                  /></a></li>
+              <li><a href="https://twitter.com" target="_blank"><img src="/assets/twitter-logo.png" alt="Twitter Icon" /></a></li>
             </ul>
           </div>
-          <div class="col s3">
+          <div class="col s3 text-center my-3">
             <h5>Makayla</h5>
-            <ul>
-              <li><a href="https://github.com/Makayla00">Git Hub</a></li>
-              <li><a href="">social</a></li>
+            <ul class="d-grid gap-4">
+              <li><a href="https://github.com/Makayla00" target="_blank" style="color: white"><img
+                    src="/assets/github-logo-mini.png"
+                    alt="GitHub Logo"
+                  /></a></li>
+              <li><a href="https://twitter.com" target="_blank"><img src="/assets/twitter-logo.png" alt="Twitter Icon" /></a></li>
             </ul>
           </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row" id="extra">
-          <div class="col s6 text-center"><a href=""><h6>docs</h6></a></div>
-          <div class="col s6 text center"><a href=""><h6>legal</h6></a></div>
         </div>
       </div>
     </footer>
