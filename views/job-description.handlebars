@@ -1,0 +1,36 @@
+<div class="container center-align w-50" style="font-family: inherit">
+  <div class="d-flex flex-column text-light my-5 border border-light">
+    <div><h3
+        class="fw-semibold text-decoration-underline mt-5"
+      >{{job.title}}</h3></div>
+    <div>
+      <h5 class="fw-semibold text-decoration-underline">Job Details:</h5>
+      <ul class="fs-5 lh-lg">
+        <li>Company: {{job.company.dataValues.company_name}}</li>
+        <li>Location: {{job.location}}</li>
+        <li>Salary: {{job.salary}}</li>
+        <li>Benefits: {{job.benefits}}</li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="fw-semibold text-decoration-underline">Role Description:</h5>
+      <p class="fs-5 lh-lg">
+        {{job.description}}
+      </p>
+    </div>
+    <div>
+      <h5 class="fw-semibold text-decoration-underline">How to apply?</h5>
+      <p class="fs-5 lh-lg">Please follow the link below to apply for the
+        position:</p>
+      <a
+        href="{{company.dataValues.company_link}}"
+        target="_blank"
+        style="color: deepskyblue"
+        class="fs-4"
+      >{{job.company.dataValues.company_name}}</a>
+    </div>
+    <div class="mb-5">
+      <h5>Thank you!</h5>
+    </div>
+  </div>
+</div>

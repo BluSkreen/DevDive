@@ -3,18 +3,31 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active job-card-info-button" id="info-{{id}}" aria-current="true" href="">Info</a>
+          <a
+            class="nav-link active job-card-info-button"
+            id="info-{{id}}"
+            aria-current="true"
+            href=""
+          >Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link job-card-location-button" id="location-{{id}}" href="">Location</a>
+          <a
+            class="nav-link job-card-location-button"
+            id="location-{{id}}"
+            href=""
+          >Location</a>
         </li>
       </ul>
     </div>
-    <div class="card-body job-card-location" data-location="{{location}}" id="job-card-info-body-{{id}}">
+    <div
+      class="card-body job-card-location"
+      data-location="{{location}}"
+      id="job-card-info-body-{{id}}"
+    >
       <h5 class="card-title">{{title}}</h5>
       <p class="card-text">{{location}}</p>
       <p class="card-text">{{description}}</p>
-      <a href="#" class="btn btn-primary">Apply Now</a>
+      <a href="/job-description/{{id}}" class="btn btn-primary">Apply Now</a>
     </div>
     <div class="card-body" id="job-card-location-body-{{id}}" hidden>
       <h5 class="card-title">{{location}}</h5>
