@@ -17,3 +17,7 @@
   transform-origin: 50% 100%;
   background: white;
 }
+
+footer h5 {
+  text-decoration: underline;
+}

@@ -1,6 +1,9 @@
 .card1 {
   font-family: system-ui;
 }
+.card2 {
+  padding-right: 120px;
+}
 
 .wrapper {
   position: relative;
@@ -30,7 +33,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  }
+}
 
 footer h5 {
   text-decoration: underline;
@@ -41,4 +44,3 @@ footer h5 {
   display: flex;
   justify-content: center;
 }
-
