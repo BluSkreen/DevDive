@@ -16,7 +16,7 @@ footer h5 {
   text-decoration: underline;
 }
 
-.center {
+#id {
   text-align: center;
   display: flex;
   justify-content: center;
