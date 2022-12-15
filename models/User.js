@@ -33,6 +33,10 @@ User.init(
         isAlphanumeric: true,
       },
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -49,8 +53,8 @@ User.init(
       },
     },
     saved_jobs: {
-        type: DataTypes.JSON,
-        defaultValue: [],
+      type: DataTypes.JSON,
+      defaultValue: [],
     },
     location: {
       type: DataTypes.STRING,

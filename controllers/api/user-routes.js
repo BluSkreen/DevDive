@@ -99,6 +99,9 @@ router.put("/update/:id", async (req, res) => {
       if (req.body.username != "") {
         user.dataValues.username = req.body.username;
       }
+      if (req.body.role != "") {
+        user.dataValues.role = req.body.role;
+      }
       if (req.body.email != "") {
         user.dataValues.email = req.body.email;
       }
