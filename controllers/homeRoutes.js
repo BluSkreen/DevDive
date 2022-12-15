@@ -73,6 +73,7 @@ router.get("/profile/:userName", async (req, res) => {
         if (myUserData.dataValues.username === req.params.userName) {
           const user = myUserData.get({ plain: true });
           console.log("Match!");
+          console.log(user);
           res.render("profile", { match: true, user });
         } else {
           // cookies dont match username param
@@ -105,7 +106,7 @@ router.get("/search/:query", async (req, res) => {
     // console.log(query);
     // console.log("---------------")
     const job_tagData = await Job_tag.findAll({
-      include: [Job, Tag]
+      include: [Job, Tag],
     });
     
     // params.split(",");
@@ -121,18 +122,17 @@ router.get("/search/:query", async (req, res) => {
     if (matchingTags) {
       const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
       console.log(jobs);
-      res.render("search", {jobs});
+      res.render("search", { jobs });
       return;
     } else {
       const jobData = await Job.findAll();
       const jobs = await jobData.map((job) => job.get({ plain: true }));
       // console.log(jobs);
-      res.render("search", {jobs});
+      res.render("search", { jobs });
       return;
     }
-    
-    // console.log(matchingTags);
 
+    // console.log(matchingTags);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -149,7 +149,6 @@ router.get("/search", async (req, res) => {
 
 router.get("/user/:id", async (req, res) => {
   try {
-    
   } catch (err) {
     res.status(500).json(err);
   }
@@ -164,7 +163,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/updateProfile", (req, res) => {
-  res.render("updateProfile");
+  res.render("updateProfile", { id: req.session.user_id });
 });
 
 module.exports = router;
