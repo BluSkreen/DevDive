@@ -102,17 +102,23 @@ router.get("/profile/:userName", async (req, res) => {
 
 router.get("/search/:query", async (req, res) => {
   try {
-    const query = await req.params.query;
+    const query = await req.params.query.toLowerCase().split(",");
     // console.log(query);
     // console.log("---------------")
     const job_tagData = await Job_tag.findAll({
       include: [Job, Tag],
     });
-
-    let matchingTags = await job_tagData.filter((job_tag) => {
+    
+    // params.split(",");
+    // maybe add location data to logic
+    // for each tagData, compare the params to it
+    // then if each one is a valid tag, query
+    console.log(query);
+    let matchingTags =  await job_tagData.filter((job_tag) => {
       // console.log(job_tag);
-      return query === job_tag.tag.dataValues.tag_name;
+      return query.includes(job_tag.tag.dataValues.tag_name.toLowerCase());
     });
+    console.log(matchingTags);
     if (matchingTags) {
       const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
       console.log(jobs);
