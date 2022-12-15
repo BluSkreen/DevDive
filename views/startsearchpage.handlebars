@@ -1,17 +1,18 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-4 my-5">
-      <input class="form-control text-light" list="datalistOptions" id="exampleDataList" placeholder="Type to search jobs..." />
-      <datalist id="datalistOptions">
-        <option value="Junior Front-End Developer"></option>
-        <option value="Junior Back-End Developer"></option>
-        <option value="Scrum Master"></option>
-        <option value="Senior Software Engineer"></option>
-        <option value="Project Help"></option>
-      </datalist>
-    </div>
-    <div class="col-2">
-      <button type="button" class="btn #0d47a1 blue darken-4"><a href="#" style="color: white"></a>Find Jobs</button>
+      <div class="row valign-wrapper">
+        <form class="grey darken-3 col-10">
+          <div class="chips">
+            <input id="search-tags" class="custom-input grey-text text-lighten-3" />
+          </div>
+        </form>
+        <div class="col-2">
+          <button class="btn waves-effect waves-light" type="submit" id="search-button">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -21,11 +22,31 @@
       <div class="card text-bg-dark border-light" style="width: 18rem">
         <div class="card-header">Front-End</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Junior Front-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Front-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Entry Level Front-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Junior Front-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Senior Front-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Junior Front-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Front-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Entry Level Front-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Junior Front-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Senior Front-End Developer</a></li>
         </ul>
       </div>
     </div>
@@ -33,11 +54,31 @@
       <div class="card text-bg-dark border-light" style="width: 18rem">
         <div class="card-header">Back-End</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Junior Back-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Back-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Senior Back-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Junior Back-End Developer</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Entry Level Back-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Junior Back-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Back-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Senior Back-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Junior Back-End Developer</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Entry Level Back-End Developer</a></li>
         </ul>
       </div>
     </div>
@@ -45,13 +86,34 @@
       <div class="card text-bg-dark border-light" style="width: 18rem">
         <div class="card-header">Scrum Master</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Junior Scrum Master</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Scrum Master Assistant</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Scrum Master/Project Manager</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Scrum Master</a></li>
-          <li class="list-group-item text-bg-dark"><a href="#" class="card-link" target="_blank">Project Manager/Scrum Master</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Junior Scrum Master</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Scrum Master Assistant</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Scrum Master/Project Manager</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Scrum Master</a></li>
+          <li class="list-group-item text-bg-dark"><a
+              href="#"
+              class="card-link"
+              target="_blank"
+            >Project Manager/Scrum Master</a></li>
         </ul>
       </div>
     </div>
   </div>
 </div>
+<script src="/js/searchBar.js"></script>
