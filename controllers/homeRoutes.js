@@ -71,12 +71,13 @@ router.get("/profile/:userName", async (req, res) => {
         //if logged in then put myUserData into user
         // **** EVERY OTHER CASE WILL PUT searchUser INTO user ****
         if (myUserData.dataValues.username === req.params.userName) {
-          const user = myUserData.get({ plain: true });
+          const userData = myUserData.get({ plain: true });
           console.log("Match!");
-          console.log(user);
+
           res.render("profile", {
             match: true,
-            user,
+            userData,
+            user: req.session.username,
             logged_in: req.session.logged_in,
           });
         } else {
@@ -104,9 +105,6 @@ router.get("/profile/:userName", async (req, res) => {
   }
 });
 
-
-
-
 router.get("/search/:query", async (req, res) => {
   try {
     const query = await req.params.query.toLowerCase().split(",");
@@ -123,16 +121,16 @@ router.get("/search/:query", async (req, res) => {
     // console.log(query);
 
     const sortedJobs = [];
-    for(let jobIndex = 0; jobIndex < jobQueryData.length; jobIndex++) {
+    for (let jobIndex = 0; jobIndex < jobQueryData.length; jobIndex++) {
       let jobFlag = true;
-      console.log(`\n---------------${jobIndex}`)
+      console.log(`\n---------------${jobIndex}`);
       let jobTags = await jobQueryData[jobIndex].tags.map((tagData) => {
         return tagData.dataValues.tag_name.toLowerCase();
-      })
+      });
       console.log(jobTags);
 
-      let compareTagsExact = await query.every(i => jobTags.includes(i));
-      let compareTags = await query.some(i => jobTags.includes(i));
+      let compareTagsExact = await query.every((i) => jobTags.includes(i));
+      let compareTags = await query.some((i) => jobTags.includes(i));
       if (compareTagsExact) {
         sortedJobs.unshift(jobQueryData[jobIndex]);
       } else if (compareTags) {
