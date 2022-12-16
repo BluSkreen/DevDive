@@ -25,6 +25,13 @@
   background: white;
 }
 
+.job-card-button {
+  color: white;
+    background-color: #161616;
+    border-width: 1px;
+    border-color: white
+}
+
 /* footer {
   padding-bottom: 2%;
 } */

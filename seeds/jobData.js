@@ -11,7 +11,7 @@ const jobData = [
   },
   {
     title: "Junior Front-End Developer",
-    location: "Denver, CO",
+    location: "Denver, Colorado",
     salary: 85000,
     benefits: "Medical, Dental, Vision",
     description: "As part of an agile software team, you will actively participate in program increment planning and related team activities.",
@@ -27,7 +27,7 @@ const jobData = [
   }, 
   {
     title: "Junior Back-End Developer",
-    location: "Englewood, CO",
+    location: "Englewood, Colorado",
     salary: 92000,
     benefits: "Medical, Dental, Vision, 401K",
     description: "We are looking for a person with knowledge in JavaScript and SQL backend. This person should involve in developing cloud-based Solutioning and architecture of new projects.",

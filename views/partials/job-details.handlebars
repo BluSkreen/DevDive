@@ -1,12 +1,13 @@
-<div class="col-sm-6">
-  <div class="card text-center">
+<div class="col-sm-6 m-4" style="width:650px; height:400px">
+  <div class="card text-center" style="width:650px; height:400px; color:white; background-color: #161616; border-width: 3px; border-color: white">
     <div class="card-header">
+      <a class="btn-flat btn-small waves-effect #f7f7f7 favorite_border right"><i class="material-icons">favorite_border</i></a>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active job-card-button" id="info-{{id}}" aria-current="true" href="">Info</a>
+          <a class="nav-link active job-card-button" style="color:white; background-color: #161616; border-width: 1px; border-color: white; border-bottom-width: 2px; border-bottom-color: #161616" id="info-{{id}}" aria-current="true" href="">Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link job-card-button location-button" id="location-{{id}}" data-location="{{location}}" href="">Location</a>
+          <a class="nav-link job-card-button location-button" style="color:white; background-color: #161616; border-width: 1px; border-color: white" id="location-{{id}}" data-location="{{location}}" href="">Location</a>
         </li>
       </ul>
     </div>
@@ -14,16 +15,16 @@
       <h5 class="card-title">{{title}}</h5>
       <p class="card-text">{{location}}</p>
       <p class="card-text">{{description}}</p>
-      <a href="/job-description/{{id}}" class="btn btn-primary">Apply Now</a>
+      <a href="/job-description/{{id}}" class="btn btn-primary" style="background-color: #039be5;">Apply Now</a>
     </div>
-    <div class="card-body" id="job-card-location-body-{{id}}" hidden>
+    <div class="card-body p-0" id="job-card-location-body-{{id}}" hidden>
       <h5 class="card-title">{{location}}</h5>
       <iframe
         class="job-card-location"
-        id="{{location}}"
-        src="https://embed.waze.com/iframe?zoom=14&lat=39.822743&lon=-105.032387&ct=livemap"
-        width="600"
-        height="450"
+        id="iframe-{{id}}"
+        src=""
+        width="500"
+        height="270"
         allowfullscreen
       ></iframe>
     </div>

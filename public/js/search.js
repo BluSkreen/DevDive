@@ -1,60 +1,5 @@
-const fetchLocation = (e) => {
-  e.preventDefault();
-
-
-
-
-    console.log(e.target.dataset.location);
-    if (e.target.dataset.location != "remote") {
-
-      //loading icon
-      //put this in async function
-      const key1 = "2768f4e462cf5ac";
-      const key2 = "7fe624327115c943a";
-      // console.log(location.replace);
-      // let location = location.replace(" ", "");
-      // var geocodingAPI = "https://api.openweathermap.org/geo/1.0/direct";
-      // var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location.replace(" ", "") + "&appid=" + key1 + key2;
-      // // var apiCall = geocodingAPI + "?q=" + e.target.dataset.location.replace(" ", "") + "&appid=" + key1 + key2;
-
-      // fetch(apiUrl)
-      //   .then(function (response) {
-      //     // console.log(response);
-      //     if (!response.ok) {
-      //       throw new Error("Network response was not OK");
-      //     }
-      //     return response.json();
-      //   })
-      //   .then(function (data) {
-      //     console.log(data);
-      //     geoData = data;
-
-      //   })
-      //   .catch(function (error) {
-      //     console.error("There has been a problem with your fetch operation: ", error);
-      //   });
-
-
-
-
-
-
-    console.log("hi");
-    // Send a POST request to the API endpoint
-    // fetch("/api/job/get-location", {
-    //   method: "POST",
-    //   body: JSON.stringify({location: e.target.dataset.location }),
-    //   headers: { "Content-Type": "application/json" },
-    // }).then((response) => {
-    //   console.log("inside .then");
-    //   if (response.ok) {
-    //     console.log(response.json());
-    //   } else {
-    //     console.log("response is not ok");
-    //   }
-    // })
-  }
-};
+const locationButtons = document.querySelectorAll(".location-button");
+const cardTabButtons = document.querySelectorAll(".job-card-button");
 
 const toggleLocation = (e) => {
   e.preventDefault();
@@ -70,6 +15,18 @@ const toggleLocation = (e) => {
     // toggle hidden on both bodys
     document.querySelector(`#job-card-info-body-${id.split("-")[1]}`).toggleAttribute("hidden");
     document.querySelector(`#job-card-location-body-${id.split("-")[1]}`).toggleAttribute("hidden");
+    document
+      .querySelector(`#info-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white; border-bottom-width: 2px; border-bottom-color: #161616"
+      );
+    document
+      .querySelector(`#location-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white;"
+      );
   } else if (!e.target.classList.contains("active") && id.split("-")[0] == "location") {
 
     console.log("not active");
@@ -80,13 +37,53 @@ const toggleLocation = (e) => {
     // toggle hidden on both bodys
     document.querySelector(`#job-card-info-body-${id.split("-")[1]}`).toggleAttribute("hidden");
     document.querySelector(`#job-card-location-body-${id.split("-")[1]}`).toggleAttribute("hidden");
+    document
+      .querySelector(`#info-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white;"
+      );
+    document
+      .querySelector(`#location-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white; border-bottom-width: 2px; border-bottom-color: #161616"
+      );
   } else {
     console.log("active");
   }
 };
 
-const locationButtons = document.querySelectorAll(".location-button");
-locationButtons.forEach((button) => button.addEventListener("click", fetchLocation));
+locationButtons.forEach( async (e) => {
+  if(e.dataset.location == "remote") {
+    return;
+  }
+  console.log(e);
+  await fetch("/api/job/get-location", {
+    method: "POST",
+    body: JSON.stringify({ location: e.dataset.location }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then(function (response) {
+      // console.log(response);
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      geoData = data;
+      document
+        .querySelector(`#iframe-${e.id.split("-")[1]}`)
+        .setAttribute(
+          "src",
+          `https://embed.waze.com/iframe?zoom=11&lat=${geoData[0].lat}&lon=${geoData[0].lon}&ct=livemap`
+        );
+    })
+    .catch(function (error) {
+      console.error("There has been a problem with your fetch operation: ", error);
+    });
+});
 
-const cardTabButtons = document.querySelectorAll(".job-card-button");
 cardTabButtons.forEach((button) => button.addEventListener("click", toggleLocation));
