@@ -126,13 +126,21 @@ router.get("/search/:query", async (req, res) => {
     if (matchingTags) {
       const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
       console.log(jobs);
-      res.render("search", { jobs, logged_in: req.session.logged_in });
+      res.render("search", {
+        jobs,
+        logged_in: req.session.logged_in,
+        user: req.session.username,
+      });
       return;
     } else {
       const jobData = await Job.findAll();
       const jobs = await jobData.map((job) => job.get({ plain: true }));
       // console.log(jobs);
-      res.render("search", { jobs, logged_in: req.session.logged_in });
+      res.render("search", {
+        jobs,
+        logged_in: req.session.logged_in,
+        user: req.session.username,
+      });
       return;
     }
 
@@ -145,7 +153,10 @@ router.get("/search/:query", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   try {
-    res.render("startsearchpage", { logged_in: req.session.logged_in });
+    res.render("startsearchpage", {
+      logged_in: req.session.logged_in,
+      user: req.session.username,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -170,6 +181,7 @@ router.get("/updateProfile", (req, res) => {
   res.render("updateProfile", {
     id: req.session.user_id,
     logged_in: req.session.logged_in,
+    user: req.session.username,
   });
 });
 
@@ -183,6 +195,7 @@ router.get("/job-description/:id", async (req, res) => {
   res.render("job-description", {
     job: job.dataValues,
     logged_in: req.session.logged_in,
+    user: req.session.username,
   });
 });
 
