@@ -3,7 +3,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
 
-class Job extends Model { };
+class Job extends Model {}
 
 Job.init(
   {
@@ -17,17 +17,13 @@ Job.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    remote: {
-      type: DataTypes.BOOLEAN,
+    location: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    salary: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     benefits: {
       type: DataTypes.STRING,
@@ -54,4 +50,4 @@ Job.init(
   }
 );
 
-module.exports = Job
+module.exports = Job;
