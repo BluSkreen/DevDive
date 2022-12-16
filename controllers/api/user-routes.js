@@ -67,24 +67,6 @@ router.post("/logout", (req, res) => {
   }
 });
 
-//put route for updating user info
-//http://localhost:3001/api/user/update/:id
-// router.put("/update/:id", async (req, res) => {
-//   try {
-//     console.log(req.body);
-//     const userData = await User.update(req.body, {
-//       where: {
-//         id: req.params.id,
-//       },
-//     });
-//     if (!req.body) {
-//       res.status(404).json("no info was entered");
-//     }
-//     res.status(200).json(userData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 router.put("/update/:id", async (req, res) => {
   try {
     const user = await User.findByPk(req.session.user_id);
