@@ -20,7 +20,7 @@ require("dotenv").config();
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  sequalize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
   // sequelize = new Sequelize(process.env.JAWS_NAME, process.env.JAWS_USER, process.env.JAWS_PASSWORD, {
   //   host: process.env.JAWSDB_URL,
   //   dialect: "mysql",

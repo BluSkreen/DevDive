@@ -3,11 +3,6 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-const fileUpload = require("express-fileupload");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const _ = require("lodash");
 // const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
@@ -16,12 +11,6 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 // const PORT = 3001;
-
-app.use(
-  fileUpload({
-    createParentPath: true,
-  })
-);
 
 
 // Set up Handlebars.js engine with custom helpers
