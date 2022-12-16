@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     if (req.session.logged_in) {
       const userData = await User.findByPk(req.session.user_id);
       const user = await userData.dataValues.username;
-      console.log(user);
+      // console.log(user);
       res.render("homepage", { logged_in: req.session.logged_in, user });
     } else {
       res.render("homepage", { logged_in: req.session.logged_in });
@@ -104,43 +104,71 @@ router.get("/profile/:userName", async (req, res) => {
   }
 });
 
+
+
+
 router.get("/search/:query", async (req, res) => {
   try {
     const query = await req.params.query.toLowerCase().split(",");
     // console.log(query);
     // console.log("---------------")
-    const job_tagData = await Job_tag.findAll({
-      include: [Job, Tag],
+    const jobQueryData = await Job.findAll({
+      include: [Job_tag, Tag],
     });
 
     // params.split(",");
     // maybe add location data to logic
     // for each tagData, compare the params to it
     // then if each one is a valid tag, query
-    console.log(query);
-    let matchingTags = await job_tagData.filter((job_tag) => {
-      // console.log(job_tag);
-      return query.includes(job_tag.tag.dataValues.tag_name.toLowerCase());
-    });
-    console.log(matchingTags);
-    if (matchingTags) {
-      const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
-      console.log(jobs);
-      res.render("search", {
-        jobs,
-        logged_in: req.session.logged_in,
-        user: req.session.username,
-      });
+    // console.log(query);
+
+    const sortedJobs = [];
+    for(let jobIndex = 0; jobIndex < jobQueryData.length; jobIndex++) {
+      let jobFlag = true;
+      console.log(`\n---------------${jobIndex}`)
+      let jobTags = await jobQueryData[jobIndex].tags.map((tagData) => {
+        return tagData.dataValues.tag_name.toLowerCase();
+      })
+      console.log(jobTags);
+
+      let compareTagsExact = await query.every(i => jobTags.includes(i));
+      let compareTags = await query.some(i => jobTags.includes(i));
+      if (compareTagsExact) {
+        sortedJobs.unshift(jobQueryData[jobIndex]);
+      } else if (compareTags) {
+        sortedJobs.push(jobQueryData[jobIndex]);
+      }
+    }
+
+    console.log(sortedJobs);
+    // console.log(singleTagFilter);
+    if (sortedJobs) {
+      const jobs = await sortedJobs.map((job) => job.dataValues);
+      // console.log(jobs);
+      if (req.session.logged_in) {
+        res.render("search", {
+          jobs,
+          logged_in: req.session.logged_in,
+          user: req.session.username,
+        });
+      } else {
+        res.render("search", { jobs });
+      }
+
       return;
     } else {
       const jobData = await Job.findAll();
       const jobs = await jobData.map((job) => job.get({ plain: true }));
       // console.log(jobs);
-      res.render("search", {
-        jobs,
-        logged_in: req.session.logged_in,
-        user: req.session.username,
-      });
+      if (req.session.logged_in) {
+        res.render("search", {
+          jobs,
+          logged_in: req.session.logged_in,
+          user: req.session.username,
+        });
+      } else {
+        res.render("search", { jobs });
+      }
       return;
     }
 
