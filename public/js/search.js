@@ -31,6 +31,9 @@ const toggleLocation = (e) => {
 };
 
 locationButtons.forEach( async (e) => {
+  if(e.dataset.location == "remote") {
+    return;
+  }
   console.log(e);
   await fetch("/api/job/get-location", {
     method: "POST",

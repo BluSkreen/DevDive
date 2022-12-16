@@ -1,6 +1,7 @@
-<div class="col-sm-6">
-  <div class="card text-center">
+<div class="col-sm-6 m-4" style="width:650px; height:400px">
+  <div class="card text-center" style="width:650px; height:400px">
     <div class="card-header">
+      <a class="btn-flat btn-small waves-effect #f7f7f7 favorite_border right"><i class="material-icons">favorite_border</i></a>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
           <a class="nav-link active job-card-button" id="info-{{id}}" aria-current="true" href="">Info</a>
@@ -16,14 +17,14 @@
       <p class="card-text">{{description}}</p>
       <a href="/job-description/{{id}}" class="btn btn-primary">Apply Now</a>
     </div>
-    <div class="card-body" id="job-card-location-body-{{id}}" hidden>
+    <div class="card-body p-0" id="job-card-location-body-{{id}}" hidden>
       <h5 class="card-title">{{location}}</h5>
       <iframe
         class="job-card-location"
         id="iframe-{{id}}"
         src=""
-        width="600"
-        height="450"
+        width="550"
+        height="300"
         allowfullscreen
       ></iframe>
     </div>
