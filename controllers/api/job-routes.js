@@ -17,16 +17,23 @@ router.get("/get-tags", async (req, res) => {
   }
 });
 
-router.post("/get-location", async (req, res) => {
-  const location = req.body.location;
-  const key1 = "2768f4e462cf5ac";
-  const key2 = "7fe624327115c943a";
-  const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${key1+key2}`;
-  // const response = await fetch(apiUrl);
-  console.log("-----------------------")
-  console.log(apiUrl);
-  console.log("-----------------------");
+// router.post("/get-location", async (req, res) => {
+//   const location = req.body.location;
+//   const key1 = "2768f4e462cf5ac";
+//   const key2 = "7fe624327115c943a";
+//   const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location.replace(" ", "")}&appid=${key1+key2}`;
+//   console.log("-----------------------")
+//   console.log(apiUrl);
+//   console.log("-----------------------");
+//   const response = await fetch(apiUrl);
+//   if (!response.ok) {
+//     throw new Error("Geodata Error")
+//   }
+//   let geodata = response.json();
+//   console.log(geodata);
+//   res.status(200).json(geodata);
 
-});
+
+// });
 
 module.exports = router;
