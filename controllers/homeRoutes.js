@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     if (req.session.logged_in) {
       const userData = await User.findByPk(req.session.user_id);
       const user = await userData.dataValues.username;
-      console.log(user);
+      // console.log(user);
       res.render("homepage", { logged_in: req.session.logged_in, user });
     } else {
       res.render("homepage", { logged_in: req.session.logged_in });
@@ -112,15 +112,15 @@ router.get("/search/:query", async (req, res) => {
     // maybe add location data to logic
     // for each tagData, compare the params to it
     // then if each one is a valid tag, query
-    console.log(query);
+    // console.log(query);
     let matchingTags =  await job_tagData.filter((job_tag) => {
       // console.log(job_tag);
       return query.includes(job_tag.tag.dataValues.tag_name.toLowerCase());
     });
-    console.log(matchingTags);
+    // console.log(matchingTags);
     if (matchingTags) {
       const jobs = await matchingTags.map((job_tag) => job_tag.job.dataValues);
-      console.log(jobs);
+      // console.log(jobs);
       res.render("search", {jobs});
       return;
     } else {
