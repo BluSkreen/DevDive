@@ -15,6 +15,18 @@ const toggleLocation = (e) => {
     // toggle hidden on both bodys
     document.querySelector(`#job-card-info-body-${id.split("-")[1]}`).toggleAttribute("hidden");
     document.querySelector(`#job-card-location-body-${id.split("-")[1]}`).toggleAttribute("hidden");
+    document
+      .querySelector(`#info-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white; border-bottom-width: 2px; border-bottom-color: #161616"
+      );
+    document
+      .querySelector(`#location-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white;"
+      );
   } else if (!e.target.classList.contains("active") && id.split("-")[0] == "location") {
 
     console.log("not active");
@@ -25,6 +37,18 @@ const toggleLocation = (e) => {
     // toggle hidden on both bodys
     document.querySelector(`#job-card-info-body-${id.split("-")[1]}`).toggleAttribute("hidden");
     document.querySelector(`#job-card-location-body-${id.split("-")[1]}`).toggleAttribute("hidden");
+    document
+      .querySelector(`#info-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white;"
+      );
+    document
+      .querySelector(`#location-${id.split("-")[1]}`)
+      .setAttribute(
+        "style",
+        "color:white; background-color: #161616; border-width: 1px; border-color: white; border-bottom-width: 2px; border-bottom-color: #161616"
+      );
   } else {
     console.log("active");
   }
